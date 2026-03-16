@@ -41,15 +41,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getFolders(userId: number, parentId?: number | null): Promise<Folder[]> {
-    let query = db.select().from(folders).where(eq(folders.userId, userId));
-    
-    // Explicit check for undefined or null vs explicit null mapping
-    if (parentId !== undefined) {
-       const [results] = await db.select().from(folders).where(and(eq(folders.userId, userId), parentId === null ? or(eq(folders.parentId, null as any)) : eq(folders.parentId, parentId)));
-       // Drizzle makes querying nulls tricky in 'and'. So let's filter after for simplicity or use custom where
-    }
-
-    const allFolders = await query;
+    const allFolders = await db.select().from(folders).where(eq(folders.userId, userId));
     if (parentId !== undefined) {
       return allFolders.filter(f => f.parentId === parentId);
     }
