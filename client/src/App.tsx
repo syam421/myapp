@@ -8,6 +8,7 @@ import { Landing } from "@/pages/Landing";
 import { AuthPage } from "@/pages/Auth";
 import { Dashboard } from "@/pages/Dashboard";
 import { FilesView } from "@/pages/FilesView";
+import { SearchView } from "@/pages/SearchView";
 
 function Router() {
   return (
@@ -25,6 +26,10 @@ function Router() {
       <Route path="/folder/:id">
         {(params) => <FilesView folderId={params.id} />}
       </Route>
+      <Route path="/category/:type">
+        {(params) => <FilesView category={params.type} />}
+      </Route>
+      <Route path="/search" component={SearchView} />
       <Route component={NotFound} />
     </Switch>
   );
