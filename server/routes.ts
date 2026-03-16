@@ -108,7 +108,13 @@ export async function registerRoutes(
   app.get(api.folders.list.path, requireAuth, async (req, res) => {
     try {
       const { parentId } = req.query;
-      const parsedParentId = parentId ? parseInt(parentId as string) : undefined;
+      // "null" string means root-level (parentId IS NULL), a number string means a specific parent
+      let parsedParentId: number | null | undefined = undefined;
+      if (parentId === "null") {
+        parsedParentId = null;
+      } else if (parentId && parentId !== "ignore") {
+        parsedParentId = parseInt(parentId as string);
+      }
       const folders = await storage.getFolders(req.session.userId!, parsedParentId);
       res.json(folders);
     } catch(err) {
