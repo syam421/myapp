@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   Cloud, LayoutDashboard, FolderOpen, Heart,
   LogOut, Upload, Plus, Image as ImageIcon, Music,
-  Film, FileText, File as FileIcon
+  Film, FileText, File as FileIcon, UserCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLogout } from "@/hooks/use-auth";
@@ -15,6 +15,7 @@ const mainNavItems = [
   { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "All Files", path: "/files", icon: FolderOpen },
   { name: "Favorites", path: "/favorites", icon: Heart },
+  { name: "Profile", path: "/profile", icon: UserCircle },
 ];
 
 const categoryItems = [

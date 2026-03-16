@@ -9,6 +9,7 @@ import { AuthPage } from "@/pages/Auth";
 import { Dashboard } from "@/pages/Dashboard";
 import { FilesView } from "@/pages/FilesView";
 import { SearchView } from "@/pages/SearchView";
+import { Profile } from "@/pages/Profile";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
         {(params) => <FilesView category={params.type} />}
       </Route>
       <Route path="/search" component={SearchView} />
+      <Route path="/profile" component={Profile} />
       <Route component={NotFound} />
     </Switch>
   );
