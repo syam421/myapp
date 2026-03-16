@@ -73,14 +73,14 @@ export function Sidebar() {
                   data-testid={`nav-${item.name.toLowerCase().replace(" ", "-")}`}
                   className={`relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 cursor-pointer ${
                     isActive(item.path)
-                      ? "bg-primary/10 text-primary font-semibold"
-                      : "text-muted-foreground hover:bg-accent/20 hover:text-foreground"
+                      ? "bg-foreground/10 text-foreground font-semibold"
+                      : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
                   }`}
                 >
                   {isActive(item.path) && (
                     <motion.div
                       layoutId="sidebar-indicator"
-                      className="absolute left-0 w-1 h-6 bg-primary rounded-r-full"
+                      className="absolute left-0 w-1 h-6 bg-amber-600 rounded-r-full"
                     />
                   )}
                   <item.icon className="w-5 h-5 shrink-0" />
@@ -101,17 +101,17 @@ export function Sidebar() {
                     data-testid={`nav-category-${item.name.toLowerCase()}`}
                     className={`relative flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 cursor-pointer ${
                       isActive(item.path)
-                        ? "bg-primary/10 text-primary font-semibold"
-                        : "text-muted-foreground hover:bg-accent/20 hover:text-foreground"
+                        ? "bg-foreground/10 text-foreground font-semibold"
+                        : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
                     }`}
                   >
                     {isActive(item.path) && (
                       <motion.div
                         layoutId="sidebar-indicator"
-                        className="absolute left-0 w-1 h-6 bg-primary rounded-r-full"
+                        className="absolute left-0 w-1 h-6 bg-amber-600 rounded-r-full"
                       />
                     )}
-                    <item.icon className={`w-5 h-5 shrink-0 ${isActive(item.path) ? "text-primary" : item.color}`} />
+                    <item.icon className={`w-5 h-5 shrink-0 ${item.color}`} />
                     {item.name}
                   </div>
                 </Link>
