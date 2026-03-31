@@ -1,9 +1,9 @@
 import { ReactNode, useState } from "react";
 import { Sidebar } from "./Sidebar";
-import { useUser } from "@/hooks/use-auth";
+import { useUser } from "../hooks/use-auth";
 import { Redirect, useLocation } from "wouter";
 import { Loader2, Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Input } from "../components/ui/input";
 
 export function AppLayout({ children }: { children: ReactNode }) {
   const { data: user, isLoading } = useUser();
