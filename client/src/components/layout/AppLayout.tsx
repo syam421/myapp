@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { Sidebar } from "./Sidebar";
-import { useUser } from "../hooks/use-auth";
+import { useUser } from "../../hooks/use-auth";
 import { Redirect, useLocation } from "wouter";
 import { Loader2, Search } from "lucide-react";
 import { Input } from "../components/ui/input";
